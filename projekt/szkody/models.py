@@ -29,6 +29,9 @@ class Klient(models.Model):
         self.modified_by = user
         super(Klient, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return self.imie+' '+self.nazwisko
+
 
 class Samochod(models.Model):
 
@@ -48,6 +51,9 @@ class Samochod(models.Model):
         self.modified_by = user
         super(Samochod, self).save(*args, **kwargs)
 
+    def __str__(self):
+        return self.nrRej
+
 class Zdarzenie(models.Model):
     adres = models.CharField(max_length=100)
     opis = models.CharField(max_length=200)
@@ -61,6 +67,9 @@ class Zdarzenie(models.Model):
             self.created_by = user
         self.modified_by = user
         super(Zdarzenie, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return self.adres
 
 
 class Uczestnicy(models.Model):

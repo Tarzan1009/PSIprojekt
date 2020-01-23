@@ -25,23 +25,23 @@ urlpatterns = [
     re_path(r'^api-auth/', include('rest_framework.urls')),
 
     path('SamochodList/', SamochodList.as_view()),
-    path('SamochodDetails/', SamochodDetail.as_view()),
+    path('SamochodDetails/<int:pk>', SamochodDetail.as_view()),
 
     path('CustomUserList/', CustomUserList.as_view()),
-    path('CustomUserDetails/', CustomUserDetail.as_view()),
+    path('CustomUserDetails/<int:pk>', CustomUserDetail.as_view()),
 
     path('KlientList/', KlientList.as_view()),
-    path('KlientDetails/', KlientDetail.as_view()),
+    path('KlientDetails/<int:pk>', KlientDetail.as_view()),
 
     path('KlientList/', KlientList.as_view()),
-    path('KlientDetails/', KlientDetail.as_view()),
+    path('KlientDetails/<int:pk>', KlientDetail.as_view()),
 
     path('ZdarzenieList/', ZdarzenieList.as_view()),
-    path('ZdarzenieDetails/', ZdarzenieDetail.as_view()),
+    path('ZdarzenieDetails/<int:pk>', ZdarzenieDetail.as_view()),
 
     path('UczestnicyList/', UczestnicyList.as_view()),
-    path('UczestnicyDetails/', UczestnicyDetail.as_view()),
+    path('UczestnicyDetails/<int:pk>', UczestnicyDetail.as_view()),
 
     path('UserList/', CustomUserList.as_view()),
-    path('UserDetails/', CustomUserDetail.as_view()),
+    path('UserDetails/<int:pk>', CustomUserDetail.as_view()),
 ]
