@@ -24,6 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^api-auth/', include('rest_framework.urls')),
 
+    path('', views.index, name='index'),
+
     path('SamochodList/', SamochodList.as_view()),
     path('SamochodDetails/<int:pk>', SamochodDetail.as_view()),
 

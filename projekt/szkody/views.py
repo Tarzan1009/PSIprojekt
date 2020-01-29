@@ -5,9 +5,30 @@ from rest_framework import generics
 from rest_framework import permissions
 
 
+def index(request):
+   """View function for home page of site."""
+
+   # Generate counts of some of the main objects
+   num_klienci = Klient.objects.all().count()
+
+   # The 'all()' is implied by default.
+   num_samochody = Samochod.objects.count()
+   num_zdarzenia = Zdarzenie.objects.count()
+
+   context = {
+      'num_klienci': num_klienci,
+      'num_samochody': num_samochody,
+      'num_zdarzenia': num_zdarzenia,
+   }
+
+   # Render the HTML template index.html with the data in the context variable
+   return render(request, 'index.html', context=context)
+
+
 class SamochodList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Samochod.objects.all()
+    template_name = "api.html"
     serializer_class = SamochodSerializer
 
 
