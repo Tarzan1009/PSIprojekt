@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block title %}<title>Local Library</title>{% endblock %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -27,27 +26,43 @@
             });
         });
     </script>
-    <!-- Add additional CSS in static file -->
-    {% load static %}
+
 </head>
+
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">
-            {% block sidebar %}
-            <ul class="sidebar-nav">
-                <br>
-                <br>
-                <br>
-                <br>
-                <li><a class="nav-link" href="/KlientList">Lista klientow</a></li>
-                <li><a class="nav-link" href="/SamochodList">Lista samochodów</a></li>
-                <li><a class="nav-link" href="/ZdarzenieList">Lista zdarzeń</a></li>
+<main>
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+        <ul class="navbar-nav">
+            <li><button type="button" class="btn" id="/KlientList">Lista klientow</button></li>
+            <li><a class="nav-link" href="/SamochodList">Lista samochodów</a></li>
+            <li><a href="/ZdarzenieList">Lista zdarzeń</a></li>
+        </ul>
+    </nav>
+    <div class="container-fluid">
+        <div class="col-md-12 dark-text text-center" id="content">
+            <h1>Szkody</h1>
+            <p>Piotr Praszkiewicz</p>
+            <p>Baza ma:</p>
+            <ul>
+                <li><strong>Liczba klientow:</strong> {{ num_klienci }}</li>
+                <li><strong>Liczba samochodów:</strong> {{ num_samochody}}</li>
+                <li><strong>Liczba zdarzeń:</strong> {{ num_zdarzenia}}</li>
             </ul>
-            {% endblock %}
         </div>
-        <div class="col-sm-10 ">{% block content %}{% endblock %}</div>
     </div>
-</div>
+</main>
+
+<!-- Footer -->
+<footer class="page-footer bg-dark text-light fixed-bottom">
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">
+        <li><a class="nav-link" href="/SamochodList">Lista samochodów</a></li>
+        <li><a class="nav-link" href="/KlientList">Lista klientów</a></li>
+        <li><a class="nav-link" href="/ZdarzenieList">Lista zdarzeń</a></li>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 </body>
 </html>
